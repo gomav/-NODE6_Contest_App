@@ -1,0 +1,36 @@
+extends layout
+
+block content
+	h1 Submitted Videos
+	a(href="/") back to main
+	if videos.length === 0
+		p no videos have been submitted
+	else
+		div.row
+			for video in videos
+				if video.contestID % 2 === 0
+					div.col-xs-6
+						ul
+							li Video Name: #{video.name}
+							li URL: #{video.url}
+							li Title: #{video.title}
+							li Description: #{video.description}
+							li Votes: #{video.votes}
+							li contestID: #{video.contestID}
+							iframe(width='560', height='315', src='//www.youtube.com/embed/#{video.slug}', frameborder='0', allowfullscreen='')
+							br
+							a(href="/vote/#{video.slug}")
+								button click to vote
+				else
+					div.col-xs-6
+						ul
+							li Video Name: #{video.name}
+							li URL: #{video.url}
+							li Title: #{video.title}
+							li Description: #{video.description}
+							li Votes: #{video.votes}
+							li contestID: #{video.contestID}
+							iframe(width='560', height='315', src='//www.youtube.com/embed/#{video.slug}', frameborder='0', allowfullscreen='')
+							br
+							a(href="/vote/#{video.slug}")
+								button click to vote 

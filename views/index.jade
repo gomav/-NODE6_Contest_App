@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	h1 Video Contest
+		
+	if videos.length === 4 
+		div 
+			h2 contest is full
+	else
+		form(action="/videos", method="post")
+			input(type="text", name="videoName" placeholder="Video Name" required)
+			input(type="text", name="URL" value = "https://www.youtube.com/watch?v=Oskbksit8-8" placeholder="URL" required)
+			input(type="text", name="Title" placeholder="Title" required)
+			input(type="text", name="Description" placeholder="Description" required)
+			input(type="submit", value="submit")
+	br
+	div
+		a(href="/submissions") view submissions 
+	
